@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter - 09</title>
+</head>
+
+<body>
+    <!-- controlslist nodownload, nofullscreen and noremoteplayback -->
+    <video controls autoplay controlslist="nodownload" loop playsinline poster="./hitesh.jpg" preload="metadata"
+        width="400">
+        <source src="./dummy.webm" type="video/webm">
+        <source src="./dummy.mp4" type="video/mp4">
+        <!-- below content will be when the browsers does not support video element -->
+        Download the <a href="./dummy.webm">WEBM</a> or <a href="./dummy.mp4">MP4</a> video.
+    </video>
+    <audio src="./dummy.mp3" controls></audio>
+    <audio src="./dummy-2.mp3" controls></audio>
+    <table border="1">
+        <tr>
+            <th>Format</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>MP4</td>
+            <td>Video</td>
+            <td>A widely used format for high-quality video compression. Compatible with most devices and platforms.
+            </td>
+        </tr>
+        <tr>
+            <td>MKV</td>
+            <td>Video</td>
+            <td>A flexible and open-source format that supports high-definition video and multiple audio tracks.</td>
+        </tr>
+        <tr>
+            <td>AVI</td>
+            <td>Video</td>
+            <td>An older video format that offers good quality but tends to have larger file sizes.</td>
+        </tr>
+        <tr>
+            <td>MP3</td>
+            <td>Audio</td>
+            <td>A popular audio format known for its good balance of sound quality and file size.</td>
+        </tr>
+        <tr>
+            <td>WAV</td>
+            <td>Audio</td>
+            <td>A high-quality, uncompressed audio format commonly used in professional settings.</td>
+        </tr>
+        <tr>
+            <td>FLAC</td>
+            <td>Audio</td>
+            <td>A lossless audio format that retains original sound quality while reducing file size.</td>
+        </tr>
+    </table>
+    <video src="./dummy-subtitles.mp4" controls preload="metadata">
+        <track label="Portuguese" kind="subtitles" srclang="pt" src="./subtitle.vtt" default="">
+    </video>
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sscX432bMZo?si=l1datV3X3WNkPkaG"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</body>
+
+</html>

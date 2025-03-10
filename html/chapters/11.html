@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter - 11</title>
+</head>
+
+<body>
+    <form action="https://chaicode.com/api" method="get">
+        <label for="email">Email</label>
+        <br>
+        <input type="email" name="email" required>
+        <br><br>
+        <label for="dob">DOB</label>
+        <br>
+        <input type="date" name="dob" required>
+        <br><br>
+        <label for="color">Favorite Color</label>
+        <br>
+        <input type="color" name="color" required>
+        <br><br>
+        <button type="submit">Send</button>
+    </form>
+    <video controls controlslist="nodownload" loop playsinline poster="./hitesh.jpg" preload="metadata" width="400">
+        <source src="./dummy.webm" type="video/webm">
+        <source src="./dummy.mp4" type="video/mp4">
+        <!-- below content will be when the browsers does not support video element -->
+        Download the <a href="./dummy.webm">WEBM</a> or <a href="./dummy.mp4">MP4</a> video.
+    </video>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(10, 10, 150, 100);
+    </script>
+</body>
+
+</html>

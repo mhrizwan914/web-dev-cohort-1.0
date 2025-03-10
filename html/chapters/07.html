@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter - 07</title>
+    <style>
+        form {
+            max-width: max-content;
+            margin: auto;
+            padding: 2rem;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="https://api.com" method="post">
+        <label for="phone">Phone</label>
+        <br>
+        <input type="tel" name="phone">
+        <br>
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input type="password" name="password" min="8" max="8"
+            pattern="/^(?!.*-.*-.*-)(?=(?:\d{8,10}$)|(?:(?=.{9,11}$)[^-]*-[^-]*$)|(?:(?=.{10,12}$)[^-]*-[^-]*-[^-]*$)  )[\d-]+$/">
+        <br>
+        <br>
+        <label for="comments">Comments</label>
+        <br>
+        <textarea name="comments"></textarea>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
