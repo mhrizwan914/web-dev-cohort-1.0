@@ -1,0 +1,12 @@
+.parent {
+    display: flex;
+    background-color: aquamarine;
+    padding: 1rem;
+    border: 2px solid black;
+    gap: 1rem;
+}
+.child {
+    flex: 1;
+    height: 100px;
+    border: 2px solid black;
+}

@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    text-align: center;
+    background: rgb(21, 15, 32);
+    background: -moz-linear-gradient(180deg, rgba(21, 15, 32, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(21, 15, 32, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    background: linear-gradient(180deg, rgba(21, 15, 32, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#150f20", endColorstr="#0e0e0e", GradientType=1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero .announcement {
+    background-color: #1f1a29;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid #36323f;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero .announcement:hover {
+    background-color: #36323f;
+}
+
+.hero .announcement p {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.hero .announcement a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #342d42;
+    border-radius: 50px;
+}
+
+.hero .title {
+    font-size: 60px;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.hero .desc {
+    font-size: 16px;
+    line-height: 26px;
+    color: #949494;
+    margin-bottom: 2rem;
+}
+
+.hero .cta {
+    background: rgb(59, 88, 233);
+    background: -moz-radial-gradient(circle, rgba(59, 88, 233, 1) 0%, rgba(116, 61, 236, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(59, 88, 233, 1) 0%, rgba(116, 61, 236, 1) 100%);
+    background: radial-gradient(circle, rgba(59, 88, 233, 1) 0%, rgba(116, 61, 236, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3b58e9", endColorstr="#743dec", GradientType=1);
+    display: inline-flex;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero .cta:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+    .hero {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .hero br {
+        display: none;
+    }
+    .hero .title {
+        font-size: 35px;
+        margin-bottom: 1rem;
+    }
+}
