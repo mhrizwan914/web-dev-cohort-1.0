@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: hsl(0deg 0% 96.08%);
+}
+
+h1.pricing-heading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    line-height: 1.1;
+    color: #2d2d2d;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+section.pricing-container {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pricing-card {
+    flex: 1;
+    position: relative;
+    background-color: hsl(0deg 0% 100%);
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    /* https: //smoothshadows.com/#djEsMSw1LDAuMDgsMjQsMzIsLTExLCMwMzA3MTIsI2YzZjRmNiwjZmZmZmZmLDI%3D */
+    box-shadow: -0px 1px 1px rgba(3, 7, 18, 0.02),
+        -2px 5px 4px rgba(3, 7, 18, 0.03),
+        -4px 12px 9px rgba(3, 7, 18, 0.05),
+        -7px 20px 15px rgba(3, 7, 18, 0.06),
+        -11px 32px 24px rgba(3, 7, 18, 0.08);
+    height: max-content;
+}
+
+.pricing-card h2 {
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.price {
+    text-align: center;
+    line-height: 1.1;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.period {
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+ul.features {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button.subscribe-btn {
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: hsl(28.82deg 100% 60%);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pricing-card.popular {
+    border: 2px solid hsl(28.82deg 100% 60%);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -17px;
+    left: 0;
+    right: 0;
+    width: max-content;
+    background-color: hsl(28.82deg 100% 60%);
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    margin: auto;
+}

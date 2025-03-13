@@ -1,0 +1,14 @@
+.parent {
+    display: grid;
+    border: 2px solid black;
+    grid-template-rows: 300px;
+    /* grid-template-columns: 300px 300px 300px; */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.child {
+    border: 2px solid rgb(218, 12, 12);
+    padding: 1rem;
+}

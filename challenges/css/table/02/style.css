@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.header h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.header .subtitle {
+    color: #626161;
+    font-size: 16px;
+    line-height: 1.1;
+}
+
+.pricing-container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pricing-card {
+    flex: 1;
+    height: max-content;
+    border-radius: 20px;
+    border: 1px solid;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.icon {
+    font-size: 30px;
+    margin-top: 1rem;
+}
+
+.price-block {
+    width: 90%;
+    margin: auto;
+    background-color: #303030;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.price {
+    font-size: 40px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.period {
+    color: #626161;
+    font-size: 16px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+ul.features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+li.disabled {
+    opacity: 0.5;
+}
+
+button.join-btn {
+    display: block;
+    width: 90%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid red;
+    color: red;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pricing-card.beginner {
+    background-color: #262626;
+    border-color: #606161;
+}
+
+.pricing-card.warrior.popular {
+    background-color: #312222;
+    border-color: #ff6b6b;
+}
+
+.pricing-card.warrior.popular .price-block {
+    background-color: #3c2d2d;
+}
+
+.pricing-card.champion {
+    background-color: #312d1d;
+    border-color: #ffd93d;
+}
+
+.pricing-card.champion .price-block {
+    background-color: #3c3829;
+}
+
+.popular-tag {
+    position: absolute;
+    top: -17px;
+    left: 0;
+    right: 0;
+    width: max-content;
+    background-color: #ffd93d;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    margin: auto;
+    color: black;
+}
