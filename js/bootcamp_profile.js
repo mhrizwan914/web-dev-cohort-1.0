@@ -1,3 +1,5 @@
+// Primitive
+
 // String => "" , '', ``
 const name = "Rizwan"
 
@@ -5,13 +7,19 @@ const name = "Rizwan"
 let age = 25
 
 // Boolean => true, false
-let isPaid = true
+let is_paid = true
 
 // null => empty, 0
 let favourite_class = null
 
 // undefined => not decided
 let home_town
+
+// Symbol
+
+// BigInt
+
+// Non Primitive => are also objects
 
 // Array => store collection of data in on reference
 let skills = ["HTML", "CSS"]
@@ -20,7 +28,10 @@ let skills = ["HTML", "CSS"]
 let profile = {
     name: "Rizwan",
     age: 25,
-    isPaid: true,
+    is_paid: true,
     skills: ["HTML", "CSS"],
     favourite_class: null
 }
+
+// console.log(typeof is_paid)
+console.log(typeof skills)
