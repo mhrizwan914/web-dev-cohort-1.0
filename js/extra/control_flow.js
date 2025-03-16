@@ -111,3 +111,22 @@ let empty_obj = {}
 // false == 0 , true
 // false == '' , true
 // 0 == '' , true
+
+// Nullish Coalescing Operator (??) : null, undefined
+
+let val_1
+val_1 = 5 ?? 10
+val_1 = null ?? 10
+val_1 = undefined ?? 15
+val_1 = undefined ?? 25 ?? null
+
+// console.log(val_1)
+
+// Terniary Operator ?
+
+// condition ? true : false 
+
+let price = 150
+
+price <= 80 ? console.log("Price is High")
+    : console.log("Price is Affordable")
