@@ -59,10 +59,41 @@
 
 // console.log(result)
 
-function writeLoveLetter(message, name) {
-    // Add name at the start of the message and return updated array
-    message.unshift(name)
-    return message
-}
-writeLoveLetter(["I", "Love", "You"], "Hoorain")
+// function writeLoveLetter(message, name) {
+//     // Add name at the start of the message and return updated array
+//     message.unshift(name)
+//     return message
+// }
+// writeLoveLetter(["I", "Love", "You"], "Hoorain")
 
+// let n = 5
+// let diamond = '';
+
+// for (let i = 1; i <= n; i++) {
+//     for (let j = 1; j <= n - i; j++) {
+//         diamond += " "
+//     }
+//     for (let k = 1; k <= ((2 * i) - 1); k++) {
+//         diamond += "*"
+//     }
+//     if (i !== n) diamond += "\n"
+// }
+
+// for (let i = n - 1; i >= 1; i--) {
+//     diamond += "\n"
+//     for (let j = 1; j <= n - i; j++) {
+//         diamond += " "
+//     }
+//     for (let k = 1; k <= ((2 * i) - 1); k++) {
+//         diamond += "*"
+//     }
+// }
+
+// for (let i = 1; i <= n; i++) {
+//     for (let j = n; j >= i; j--) {
+//         diamond += "*"
+//     }
+//     if (i !== n) diamond += "\n"
+// }
+
+// console.log(diamond)
