@@ -71,3 +71,21 @@ teas.desc = function () {
 let new_merge = { ...teas, ...all_teas }
 
 // console.log(new_merge)
+
+let new_arr = [1, 2, 3]
+
+let plus_arr = []
+
+if (!Array.prototype.map) {
+    // Fallback
+    Array.prototype.map = function () {
+        for (let i = 0; i < new_arr.length; i++) {
+            plus_arr.push(array[i] + 1)
+        }
+        return plus_arr
+    }
+} else {
+    plus_arr = new_arr.map((element) => element + 1)
+}
+
+console.log(plus_arr)
