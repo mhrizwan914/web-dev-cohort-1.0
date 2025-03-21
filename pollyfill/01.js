@@ -30,6 +30,16 @@ if (!Array.prototype.optimize_filter) {
     }
 }
 
+if (!Array.prototype.optimize_reduce) {
+    Array.prototype.optimize_reduce = function (callback, ini) {
+        let result = ini !== undefined ? ini : 0
+        for (let i = 0; i < this.length; i++) {
+            result = callback(result, this[i], i, this)
+        }
+        return result
+    }
+}
+
 // Problem : .map() function is not defined
 
 let arr = [1, 2, 3, 4, 5]
@@ -51,3 +61,11 @@ let new_arr = arr.optimize_map((element) => element * 2)
 let fil_arr = arr.optimize_filter((element) => element > 2)
 
 // console.log(fil_arr)
+
+// reduce() method callback fun, final value return krta hai
+
+let new_summ = arr.optimize_reduce((acc, curr) => (
+    acc + curr
+))
+
+console.log(new_summ)
