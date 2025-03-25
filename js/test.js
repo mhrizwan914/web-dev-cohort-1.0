@@ -97,3 +97,148 @@
 // }
 
 // console.log(diamond)
+
+// function createStudentProfile(name, age, grade) {
+//     // Return an object with name, age, and grade
+//     if (
+//         typeof name !== 'string' ||
+//         name === "" ||
+//         age <= 5 ||
+//         !Number.isInteger(age) ||
+//         typeof age !== 'number' ||
+//         typeof grade !== 'string'
+//     ) {
+//         return "Invalid input"
+//     }
+
+//     return {
+//         name,
+//         age,
+//         grade
+//     }
+// }
+
+// console.log(createStudentProfile("", 5, "1st"))
+
+
+// function addCarColor(car, color) {
+//     // Add color property to the car object
+//     if (typeof car !== "object" || typeof color !== "string" || color.length == 0) {
+//         return "Invalid color"
+//     }
+//     car.color = color
+//     return car
+// }
+
+// console.log(addCarColor({ brand: "Toyota", model: "Corolla" }, "Red"))
+
+// function hasDiscount(product) {
+//     // Check if product has discount property
+//     if (typeof product === "object") {
+//         return product.hasOwnProperty("discount")
+//     }
+// }
+
+// console.log(hasDiscount({ name: "Laptop", price: 599, discount: 10 }))
+
+// function removePassword(user) {
+//     // Remove password property
+//     if (
+//         typeof user === "object" &&
+//         user.hasOwnProperty("username") &&
+//         user.hasOwnProperty("password") &&
+//         user.password !== 0 &&
+//         user.username !== 0 &&
+//         typeof user.password === "string" &&
+//         typeof user.username === "string"
+//     ) {
+//         delete user.password
+//         return user
+//     } else if (!user.hasOwnProperty("password")) {
+//         return user
+//     }
+// }
+
+// console.log(removePassword({ username: "rizwan", password: "123655" }))
+
+// function countProperties(user) {
+//     // Return the number of properties in user
+//     if (typeof user === "object" && user.length !== 0) {
+//         let len = Object.keys(user)
+//         return len.length
+//     }
+// }
+
+// console.log(countProperties({ name: "Rizwan", age: 25, email: "rizwan@gmail.com" }))
+
+// function mergeObjects(obj1, obj2) {
+//     // Merge obj1 and obj2 into a single object
+//     if (typeof obj1 === "object" && typeof obj2 === "object") {
+//         return { ...obj1, ...obj2 }
+//     }
+// }
+
+// console.log(mergeObjects({ name: "Rizwan", age: 20 }, { age: 30, email: "rizwan@gmail.com" }))
+
+// function objectToArray(obj) {
+//     // Convert the object into an array of key-value pairs
+//     if (typeof obj === "object") {
+//         return Object.entries(obj)
+//     }
+// }
+
+// console.log(objectToArray({ name: "Rizwan", age: 20 }))
+
+// function cleanObject(obj) {
+//     // Remove all properties with null or undefined values
+//     for (const key in obj) {
+//         if (obj[key] === null || obj[key] === undefined) {
+//             delete obj[key]
+//         }
+//     }
+//     return obj
+// }
+
+// console.log(cleanObject({ name: "Rizwan", age: 20, email: null, city: undefined }))
+
+// function deepClone(obj) {
+//     // Return a deep copy of obj
+//     let deepobj = {}
+//     if (typeof obj === "object") {
+//         deepobj = JSON.stringify(obj)
+//         return JSON.parse(deepobj)
+//     }
+// }
+
+// console.log(deepClone({
+//     name: "Alice",
+//     age: 25,
+//     address: {
+//         city: "New York",
+//         zip: 10001
+//     }
+// }))
+
+function getNestedValue(obj, keyPath) {
+    // Check if obj is a valid object and keyPath is a string
+    if (typeof obj !== 'object' || obj === null || typeof keyPath !== 'string') {
+        return "Key not found";
+    }
+
+    // Split keyPath into individual keys
+    const keys = keyPath.split('.');
+
+    // Reduce method to traverse the nested object
+    let result = obj;
+    for (let key of keys) {
+        if (result && key in result) {
+            result = result[key]; // Move deeper into the object
+        } else {
+            return "Key not found"; // If key is missing
+        }
+    }
+
+    return result;
+}
+
+console.log(getNestedValue({ user: { address: { city: "New York" } } }, "user.address.city"))
