@@ -219,26 +219,42 @@
 //     }
 // }))
 
-function getNestedValue(obj, keyPath) {
-    // Check if obj is a valid object and keyPath is a string
-    if (typeof obj !== 'object' || obj === null || typeof keyPath !== 'string') {
-        return "Key not found";
-    }
+// function getNestedValue(obj, keyPath) {
+//     // Check if obj is a valid object and keyPath is a string
+//     if (typeof obj !== 'object' || obj === null || typeof keyPath !== 'string') {
+//         return "Key not found";
+//     }
 
-    // Split keyPath into individual keys
-    const keys = keyPath.split('.');
+//     // Split keyPath into individual keys
+//     const keys = keyPath.split('.');
 
-    // Reduce method to traverse the nested object
-    let result = obj;
-    for (let key of keys) {
-        if (result && key in result) {
-            result = result[key]; // Move deeper into the object
-        } else {
-            return "Key not found"; // If key is missing
-        }
-    }
+//     // Reduce method to traverse the nested object
+//     let result = obj;
+//     for (let key of keys) {
+//         if (result && key in result) {
+//             result = result[key]; // Move deeper into the object
+//         } else {
+//             return "Key not found"; // If key is missing
+//         }
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
-console.log(getNestedValue({ user: { address: { city: "New York" } } }, "user.address.city"))
+// console.log(getNestedValue({ user: { address: { city: "New York" } } }, "user.address.city"))
+
+// function Robot(name, batteryLevel) {
+//     // Initialize name and batteryLevel properties
+//     this.name = name
+//     this.batteryLevel = batteryLevel
+// }
+
+// Robot.prototype.charge = function () {
+//     this.batteryLevel = Math.min(this.batteryLevel + 20, 100); // Add 20, but never go beyond 100
+//     return this.batteryLevel;
+// }
+
+
+// let new1 = new Robot("Robot 1", 90)
+
+// console.log(new1.charge());
