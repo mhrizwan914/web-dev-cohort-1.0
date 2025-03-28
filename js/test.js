@@ -372,29 +372,94 @@
 // console.log(emply.applyBonus(20))
 // console.log(emply.applyBonus(10))
 
-function Library() {
-    // Initialize books property
-    this.books = []
-}
+// function Library() {
+//     // Initialize books property
+//     this.books = []
+// }
 
-Library.prototype.addBook = function (book) {
-    this.books.push(book)
-    return this.books
-}
+// Library.prototype.addBook = function (book) {
+//     this.books.push(book)
+//     return this.books
+// }
 
-Library.prototype.findBook = function (title) {
-    let result = this.books.filter((element) => element.toLowerCase().includes(title.toLowerCase()))
-    if (result.length > 0) {
-        return `Book found ${result}`
-    } else {
-        return `Book not found ${result}`
-    }
-}
+// Library.prototype.findBook = function (title) {
+//     let result = this.books.filter((element) => element.toLowerCase().includes(title.toLowerCase()))
+//     if (result.length > 0) {
+//         return "Book found"
+//     } else {
+//         return "Book not found"
+//     }
+// }
 
-let book = new Library()
+// let book = new Library()
 
-console.log(book.addBook("Harry Porter"))
-console.log(book.addBook("The Hobbit"))
-console.log(book.findBook("The Hobbit"))
-console.log(book.addBook("The Hobbit"))
-console.log(book.findBook("Black"))
+// console.log(book.addBook("Harry Porter"))
+// console.log(book.addBook("The Hobbit"))
+// console.log(book.findBook("The Hobbit"))
+// console.log(book.addBook("The Hobbit"))
+// console.log(book.findBook("The"))
+
+// function BankAccount(accountNumber, holderName, balance) {
+//     this.accountNumber = accountNumber
+//     this.holderName = holderName
+//     this.balance = balance
+// }
+
+// BankAccount.prototype.deposit = function (amount) {
+//     this.balance += amount
+//     return `Deposited ${amount}`
+// }
+
+// BankAccount.prototype.withdraw = function (amount) {
+//     if (this.balance < amount) {
+//         return "Insufficient balance"
+//     }
+//     this.balance -= amount
+//     return `Withdrew ${amount}`
+// }
+
+// BankAccount.prototype.transfer = function (amount, targetAccount) {
+//     if (this.balance < amount) {
+//         return "Insufficient balance"
+//     }
+//     this.balance -= amount
+//     targetAccount.balance += amount
+//     return [this.balance, targetAccount.balance]
+// }
+
+// let account1 = new BankAccount(101, "Alice", 700)
+// let account2 = new BankAccount(102, "Bob", 400)
+
+// console.log(account1)
+// console.log(account2)
+// console.log(account1.transfer(300, account2))
+
+// function Product(name, price, stock) {
+//     // Initialize name, price, and stock properties
+//     if (price > 0 && stock > 0) {
+//         this.name = name
+//         this.price = price
+//         this.stock = stock
+//     }
+// }
+
+// Product.prototype.applyDiscount = function (percent) {
+//     let discount = (this.price / 100) * percent
+//     this.price -= Math.round(discount)
+//     return this.price
+// }
+
+// Product.prototype.purchase = function (quantity) {
+//     if (this.stock >= quantity && this.stock !== 0) {
+//         this.stock -= quantity
+//         return this.stock
+//     } else {
+//         return "Not enough stock"
+//     }
+// }
+
+// let product1 = new Product("Laptop", 699, 10)
+
+// console.log(product1)
+// console.log(product1.applyDiscount(9.5))
+// console.log(product1.purchase(5))
