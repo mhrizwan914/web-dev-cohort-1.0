@@ -258,3 +258,143 @@
 // let new1 = new Robot("Robot 1", 90)
 
 // console.log(new1.charge());
+
+
+// function Counter() {
+//     // Initialize count property
+//     this.count = 0
+// }
+
+// Counter.prototype.increment = function () {
+//     this.count += 1
+//     return this.count
+// }
+
+// Counter.prototype.decrement = function () {
+//     this.count -= 1
+//     return this.count
+// }
+
+// let increment = new Counter()
+
+// console.log(increment.decrement())
+// console.log(increment.decrement())
+
+// function Playlist(song) {
+//     // Initialize songs property
+//     this.songs = []
+// }
+
+// Playlist.prototype.addSong = function (song) {
+//     this.songs.push(song)
+//     return this.songs
+// }
+
+// let song = new Playlist("Tum Hi Ho")
+
+// console.log(song.addSong("Tum Hi Ho"))
+// console.log(song.addSong("Meri Zindagi"))
+// console.log(song.addSong("Tum Hi Ho"))
+// console.log(song.addSong("Meri Zindagi"))
+
+// function ShoppingCart() {
+//     // Initialize items property
+//     this.items = []
+// }
+
+// ShoppingCart.prototype.addItem = function (price) {
+//     this.items.push(price)
+//     return this.items
+// }
+
+// ShoppingCart.prototype.getTotalPrice = function () {
+//     let sum = this.items.reduce(
+//         (acc, curr) => acc + curr,
+//         0,
+//     )
+
+//     return sum
+// }
+
+// let items = new ShoppingCart()
+
+// console.log(items.addItem([10, 20, 100]))
+// console.log(items.getTotalPrice())
+// console.log(items.addItem([20, 20, 100]))
+// console.log(items.getTotalPrice())
+
+// function BankAccount(balance) {
+//     this.balance = balance
+//     this.transactions = []
+// }
+
+// BankAccount.prototype.deposit = function (amount) {
+//     this.balance += amount
+//     this.transactions.push(`Deposited ${amount}`)
+//     return `Deposited ${amount}`
+// }
+
+// BankAccount.prototype.withdraw = function (amount) {
+//     if (this.balance < amount) {
+//         this.transactions.push("Insufficient balance")
+//         return "Insufficient balance"
+//     }
+//     this.balance -= amount;
+//     this.transactions.push(`Withdrew ${amount}`)
+//     return `Withdrew ${amount}`
+// }
+
+// BankAccount.prototype.getTransactionHistory = function () {
+//     return this.transactions
+// }
+
+// let my_account = new BankAccount(100)
+
+// console.log(my_account.deposit(50))
+// console.log(my_account.getTransactionHistory())
+
+// function Employee(name, position, salary) {
+//     // Initialize name, position, and salary properties
+//     this.name = name
+//     this.position = position
+//     this.salary = salary
+// }
+
+// Employee.prototype.applyBonus = function (percent) {
+//     let bonus = (this.salary / 100) * percent
+//     this.salary += bonus
+//     return this.salary
+// }
+
+// let emply = new Employee("Rizwan", "Developer", 50000)
+
+// console.log(emply.applyBonus(10))
+// console.log(emply.applyBonus(20))
+// console.log(emply.applyBonus(10))
+
+function Library() {
+    // Initialize books property
+    this.books = []
+}
+
+Library.prototype.addBook = function (book) {
+    this.books.push(book)
+    return this.books
+}
+
+Library.prototype.findBook = function (title) {
+    let result = this.books.filter((element) => element.toLowerCase().includes(title.toLowerCase()))
+    if (result.length > 0) {
+        return `Book found ${result}`
+    } else {
+        return `Book not found ${result}`
+    }
+}
+
+let book = new Library()
+
+console.log(book.addBook("Harry Porter"))
+console.log(book.addBook("The Hobbit"))
+console.log(book.findBook("The Hobbit"))
+console.log(book.addBook("The Hobbit"))
+console.log(book.findBook("Black"))
