@@ -81,8 +81,47 @@ let full_name = f_name + " " + l_name
 
 let teas = ["Green Tea", "Lemon Tea", "Ginger Tea"]
 
-console.log(teas[2])
-console.log(`Total tea's is ${teas.length}`)
-console.log(teas.push("Ice Tea"))
-console.log(teas)
-console.log(teas.pop())
+// console.log(teas[2])
+// console.log(`Total tea's is ${teas.length}`)
+// console.log(teas.push("Ice Tea"))
+// console.log(teas)
+// console.log(teas.pop())
+
+let index = teas.indexOf("Green Tea")
+
+if (index !== -1) {
+    teas.splice(index, 1)
+}
+
+// console.log(teas)
+
+teas.forEach((chai, index) => {
+    // console.log(`${index} of ${chai}`)
+})
+
+let more_teas = ["Ginger Tea", "Leaves Tea"]
+
+let all_teas = teas.concat(teas, more_teas)
+
+let new_teas = [...teas, "Ginger Tea", "Leaves Tea"]
+
+// console.log(new_teas)
+
+let recipe = {
+    name: "Masala Chai",
+    ingredients: {
+        tea_leaves: "Asam Teas",
+        milk: "Full Cream Milk",
+        sugar: "Brown",
+        spices: ["Dalchini", "Ginger"]
+    },
+    instructions: "Boil watter, add tea leaves, milk, sugar and spices"
+}
+
+// console.log(recipe["ingredients"]["spices"][0])
+
+
+let updated_recipe = {
+    ...recipe,
+    expiery: "12 May 2025"
+}
