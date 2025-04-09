@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <ul id="users"></ul>
+    <script>
+        let ul_elem = document.getElementById("users")
+        function render_data(data) {
+            data.data.data.forEach(element => {
+                let li_tag = document.createElement('li')
+                li_tag.innerText = element.name.first
+                ul_elem.append(li_tag)
+            })
+        }
+        fetch("https://api.freeapi.app/api/v1/public/randomusers")
+            .then((reponse) => reponse.json())
+            .then(render_data)
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                return "Mjhy farq nhi pdhta hai"
+            })
+    </script>
+</body>
+
+</html>

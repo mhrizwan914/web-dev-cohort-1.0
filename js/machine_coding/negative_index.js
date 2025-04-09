@@ -1,4 +1,4 @@
-let arr = [1, 2, 3, 4, 5]
+
 
 // console.log(arr[-1])
 
@@ -23,18 +23,34 @@ let user_proxy = new Proxy(user, {
     }
 })
 user_proxy.age = 26
-// console.log(user_proxy.age)
-// console.log(user.age)
+// console.log(user_proxy.password)
+// console.log(user.password)
 
 function negative_index(arr) {
     return new Proxy(arr, {
         get(target, prop) {
-            if (prop < 0) {
-                return target[target.length + prop]
+            let index = Number(prop)
+            if (index < 0) {
+                return target[target.length + index]
             }
-            return target[prop]
+            return target[index]
+        },
+        set(target, prop, value) {
+            let index = Number(prop)
+            if (index < 0) {
+                target[target.length + index] = value
+            } else {
+                target[index] = value
+            }
+            return true
         }
     })
 }
+let arr = [1, 2, 3, 4, 5]
 
-console.log(negative_index(arr))
+let new_arr = negative_index(arr)
+
+// console.log(new_arr[-1])
+// new_arr[-2] = 22
+// console.log(new_arr)
+// console.log(arr)
