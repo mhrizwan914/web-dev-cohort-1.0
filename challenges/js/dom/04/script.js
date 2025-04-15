@@ -24,8 +24,10 @@ add_task_btn.addEventListener("click", function () {
     complete_btn.textContent = "✔"
 
     delete_btn.addEventListener("click", function () {
-        let total = Array.from(task_list.children).filter((e) => e.classList.contains("completed"))
-        total_completed_task.textContent = `Completed: ${total.length - 1}`
+        if (li_tag.classList.contains("completed")) {
+            let total = Array.from(task_list.children).filter((e) => e.classList.contains("completed"))
+            total_completed_task.textContent = `Completed: ${total.length - 1}`
+        }
 
         li_tag.remove()
         total_task_list.textContent = `Total tasks: ${task_list.children.length}`
