@@ -92,11 +92,24 @@ next_btn.addEventListener("click", function () {
 change_slide(2)
 
 let ref = null
+let left_ref = null
+
+function count_down() {
+  clearInterval(left_ref)
+  let seconds = 5
+  timer_ele.textContent = `Next slide in ${seconds}s`
+  left_ref = setInterval(() => {
+    --seconds
+    if (seconds <= 0) seconds = 5
+    timer_ele.textContent = `Next slide in ${seconds}s`
+  }, 1 * 1000)
+}
 
 autoplay_btn.addEventListener("click", function () {
   let current = active_slide(1)
   let status = autoplay_btn.getAttribute("data-autoplay")
   if (status === "false") {
+    count_down()
     ref = setInterval(() => {
       current === total_slides ? change_slide(total_slides - current) : change_slide((current - 1) + 1)
       current = active_slide(1)
@@ -106,7 +119,10 @@ autoplay_btn.addEventListener("click", function () {
   } else {
     clearInterval(ref)
     ref = null
+    clearInterval(left_ref)
+    left_ref = null
     autoplay_btn.setAttribute("data-autoplay", "false")
     autoplay_btn.textContent = "Start Auto Play"
+    timer_ele.textContent = ``
   }
 })
