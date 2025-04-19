@@ -1,6 +1,8 @@
 //User
-import { user_register } from "./user.controller.js"
+import { user_login, user_register, user_verify } from "./user.controller.js"
 
 export {
-    user_register
+    user_login,
+    user_register,
+    user_verify
 }

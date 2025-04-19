@@ -8,6 +8,8 @@ import cors from "cors"
 import db from "./utils/db_connection.js"
 // All routes
 import user_routes from "./routes/user.route.js"
+// Cokkie Parser
+import cookie_parser from "cookie-parser"
 
 // Config dotenv
 dotenv.config()
@@ -26,6 +28,8 @@ app.use(cors({
 app.use(express.json())
 // URL encoded in JSON
 app.use(express.urlencoded({ extended: true }))
+// Use Cookie Parser
+app.use(cookie_parser())
 
 //Dont use this ports // 80, 443, 23
 
