@@ -1,7 +1,7 @@
 // Express
 import express from "express"
 // Controllers
-import { user_login, user_register, user_verify, user_profile, user_logout } from "../controllers/index.js"
+import { user_login, user_register, user_verify, user_profile, user_logout, user_forgot_password, user_reset_password } from "../controllers/index.js"
 // Middlewares
 import { is_logged_in } from "../middlewares/auth.middleware.js"
 
@@ -27,5 +27,11 @@ router.get("/profile", is_logged_in, user_profile)
 
 // Profile
 router.get("/logout", is_logged_in, user_logout)
+
+// Forgot Password
+router.get("/forgot-password", user_forgot_password)
+
+// Reset Password
+router.get("/reset-password/:token", user_reset_password)
 
 export default router

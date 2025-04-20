@@ -173,6 +173,11 @@ const user_profile = async (req, res) => {
 
 // User logout
 const user_logout = async (req, res) => {
+    if (!req.user) {
+        res.status(400).json({
+            message: "User not found"
+        })
+    }
     try {
         res.cookie("token", "", {
             expiresIn: new Date(0)
@@ -182,20 +187,90 @@ const user_logout = async (req, res) => {
         })
     } catch (error) {
         console.log("Erroe during user logout", error)
-        res.status(200).json({
-            message: "User logout successfully"
-        })
     }
 }
 
 // User forgot password
-const user_forgot_password = async () => {
-
+const user_forgot_password = async (req, res) => {
+    // Get data
+    const { email } = req.body
+    // Validate data
+    if (!email) {
+        res.status(400).json({
+            message: "User email is required"
+        })
+    }
+    try {
+        const user = await User.findOne({ email })
+        if (!user) {
+            res.status(400).json({
+                message: "User email is not found"
+            })
+        }
+        // Create verification token
+        const reset_token = crypto.randomBytes(32).toString("hex")
+        // Store token
+        user.p_reset_token = reset_token
+        user.p_reset_token_expiry = new Date(Date.now() + (10 * 60 * 1000))
+        // Save token
+        await user.save()
+        // Create Transporter
+        const transporter = nodemailer.createTransport({
+            host: process.env.MAILTRAP_HOST,
+            port: process.env.MAILTRAP_PORT,
+            secure: false,
+            auth: {
+                user: process.env.MAILTRAP_USER,
+                pass: process.env.MAILTRAP_PASSWORD,
+            },
+        })
+        // Create mail options
+        const mail_options = {
+            from: "dev.mr@inhousedept.com",
+            to: "dev.mr@inhousedept.com",
+            subject: "Reset Verification - Web Dev Cohort 1.0",
+            text: `Please click on the following link! <a href="localhost:4000/api/v1/user/reset-password/${reset_token}">Click Here</a>`
+        }
+        try {
+            const info = await transporter.sendMail(mail_options)
+            res.status(200).json({
+                message: "Reset request send successfully",
+                email: info.messageId,
+                user
+            })
+        } catch (error) {
+            console.log("Error during reset email send", error)
+        }
+    } catch (error) {
+        console.log("Error during requested user found in database")
+    }
 }
 
 // User reset password
-const user_reset_password = async () => {
-
+const user_reset_password = async (req, res) => {
+    // Get data 
+    const { password } = req.body
+    const { token } = req.params
+    if (!token || !password) {
+        res.status(400).json({
+            message: "Password or Verifcation is required",
+        })
+    }
+    try {
+        const user = await User.findOne({ p_reset_token: token, p_reset_token_expiry: { $gt: new Date(Date.now()) } })
+        if (!user) {
+            res.status(400).json({
+                message: "User not found",
+            })
+        }
+        user.password = password
+        await user.save()
+        res.status(200).json({
+            message: "User password reset successfully",
+        })
+    } catch (error) {
+        console.log("Error during requested user found in database")
+    }
 }
 
 // Export controllers
