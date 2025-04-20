@@ -14,7 +14,7 @@ const user_login = async (req, res) => {
     const { email, password } = req.body
     // Validate data
     if (!email || !password) {
-        return res.status(400).json({
+        res.status(400).json({
             message: "All fields are required"
         })
     }
@@ -22,14 +22,14 @@ const user_login = async (req, res) => {
         // Check user existing
         const existing_user = await User.findOne({ email })
         if (!existing_user) {
-            return res.status(400).json({
+            res.status(400).json({
                 message: "Invalid user or password"
             })
         }
         // Check password
         const check_password = await bcrypt.compare(password, existing_user.password)
         if (!check_password) {
-            return res.status(400).json({
+            res.status(400).json({
                 message: "Invalid user or password"
             })
         }
@@ -43,7 +43,7 @@ const user_login = async (req, res) => {
         }
         res.cookie("token", token, cookie_option)
 
-        return res.status(200).json({
+        res.status(200).json({
             message: "User login successfully",
             user: {
                 _id: existing_user._id,
@@ -63,7 +63,7 @@ const user_register = async (req, res) => {
     const { username, email, password } = req.body
     // Validate data
     if (!username || !email || !password) {
-        return res.status(400).json({
+        res.status(400).json({
             message: "All fields are required"
         })
     }
@@ -72,7 +72,7 @@ const user_register = async (req, res) => {
         // Check user existing
         const existing_user = await User.findOne({ email })
         if (existing_user) {
-            return res.status(400).json({
+            res.status(400).json({
                 message: "User already exists",
             })
         }
@@ -83,7 +83,7 @@ const user_register = async (req, res) => {
             password
         })
         if (!user) {
-            return res.status(400).json({
+            res.status(400).json({
                 message: "User not registered",
             })
         }
@@ -113,7 +113,7 @@ const user_register = async (req, res) => {
             }
             try {
                 const info = await transporter.sendMail(mail_options)
-                return res.status(200).json({
+                res.status(200).json({
                     message: "User successfully registered",
                     email: info.messageId,
                     user,
@@ -133,24 +133,70 @@ const user_verify = async (req, res) => {
     const { token } = req.params
     // Validate token
     if (!token) {
-        return res.status(400).json({
+        res.status(400).json({
             message: "Verification token is required"
         })
     }
     // Find token
     const user = await User.findOne({ verification_token: token })
     if (!user) {
-        return res.status(400).json({
+        res.status(400).json({
             message: "Verification token is invalid"
         })
     }
     user.is_verified = true
     user.verification_token = undefined
     await user.save()
-    return res.status(201).json({
+    res.status(201).json({
         message: "Email is verified successfully"
     })
 }
 
+// User profile
+const user_profile = async (req, res) => {
+    const { user } = req
+    try {
+        const verify_user = await User.findById(user.id).select("-password -verification_token -createdAt -updatedAt -_id -__v")
+        if (!verify_user) {
+            res.status(400).json({
+                message: "User is not found"
+            })
+        }
+        res.status(200).json({
+            message: "User found succefully",
+            user: verify_user
+        })
+    } catch (error) {
+        console.log("Error during user found is database", error)
+    }
+}
+
+// User logout
+const user_logout = async (req, res) => {
+    try {
+        res.cookie("token", "", {
+            expiresIn: new Date(0)
+        })
+        res.status(200).json({
+            message: "User logout successfully"
+        })
+    } catch (error) {
+        console.log("Erroe during user logout", error)
+        res.status(200).json({
+            message: "User logout successfully"
+        })
+    }
+}
+
+// User forgot password
+const user_forgot_password = async () => {
+
+}
+
+// User reset password
+const user_reset_password = async () => {
+
+}
+
 // Export controllers
-export { user_login, user_register, user_verify }
+export { user_login, user_register, user_verify, user_profile, user_logout, user_forgot_password, user_reset_password }
