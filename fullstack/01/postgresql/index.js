@@ -4,10 +4,8 @@ import express from "express"
 import dotenv from "dotenv"
 // Cors
 import cors from "cors"
-// Utils
-// import db from "./utils/db_connection.js"
 // All routes
-// import user_routes from "./routes/user.route.js"
+import user_routes from "./routes/user.route.js"
 // Cokkie Parser
 import cookie_parser from "cookie-parser"
 
@@ -33,11 +31,8 @@ app.use(cookie_parser())
 
 //Dont use this ports // 80, 443, 23
 
-// Call databse function
-// db()
-
 // User routes
-// app.use("/api/v1/user", user_routes)
+app.use("/api/v1/user", user_routes)
 
 // Listen app
 app.listen(port, () => {
