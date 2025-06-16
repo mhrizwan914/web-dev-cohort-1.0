@@ -8,6 +8,10 @@ export default function App() {
       .then((response) => response.json())
       .then((data) => set_quote(data?.data?.content))
       .catch((error) => console.log(error));
+
+    return () => {
+      console.log("Component unmounted");
+    };
   }, []);
 
   return (
